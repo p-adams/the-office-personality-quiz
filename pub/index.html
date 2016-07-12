@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>The Office Personality Quiz</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato:900" rel="stylesheet"> 
+</head>
+<body>
+    <div id="app">
+        <router-view></router-view>
+    </div>
+
+    <template id="start">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h3 id="title">{{title}}</h3>
+                    <img id="start-image" src="img/1.jpg"><br>
+                    <a v-link="{path: '/One'}">
+                    <button class="btn btn-primary">Start</button>
+                    </a>
+                </div>
+            </div>
+         </div>
+    </template>
+
+<!-- question one -->
+
+    <template id="question-one">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h2>Question 1</h2>
+                    <img src="img/6.jpg"></br>
+                    <h4>Someone in the office uses your favorite coffee mug</h4>
+                    <input type="radio" id="one" value="One" @change="clicked" v-model="picked">
+                    <label for="one">Demand the person be written up. </label>
+                    <br>
+                    <input type="radio" id="two" value="Two" @change="clicked" v-model="picked">
+                    <label for="two">It’s okay, just wash it when you’re done.</label>
+                    <br>
+                    <input type="radio" id="three" value="Three" @change="clicked" v-model="picked">
+                    <label for="three">I don’t drink coffee at work.  </label>
+                    <br>
+                    <input type="radio" id="four" value="Four" @change="clicked" v-model="picked">
+                    <label for="four">How dare he/she use my property. </label>
+                    <br>
+                    <a v-link="{path: '/Two'}">
+                        <button :disabled="!selected" @click="saveAnswer(picked)" class="btn btn-default">Next</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!-- question two -->
+
+    <template id="question-two">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h2>Question 2</h2>
+                    <img src="img/2.jpg">
+                    <h4>Your idea of an office prank is</h4>
+                    <input type="radio" id="five" value="Five" @change="clicked" v-model="picked">
+                    <label for="five">Convince someone that they’ve been fired.</label>
+                    <br>
+                    <input type="radio" id="six" value="Six" @change="clicked" v-model="picked">
+                    <label for="six">Hide your colleague’s cell phone.</label>
+                    <br>
+                    <input type="radio" id="seven" value="Seven" @change="clicked" v-model="picked">
+                    <label for="seven">Office is no place for pranks.</label>
+                    <br>
+                    <input type="radio" id="eight" value="Eight" @change="clicked" v-model="picked">
+                    <label for="eight">Haze the new guy.</label>
+                    <br>
+                    <a v-link="{path: '/Three'}">
+                        <button :disabled="!selected" @click="saveAnswer(picked)" class="btn btn-default">Next</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!-- question three -->
+
+    <template id="question-three">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h2>Question 3</h2>
+                    <img src="img/7.jpg">
+                    <h4>How do you feel about your boss</h4>
+                    <input type="radio" id="nine" value="Nine" @change="clicked" v-model="picked">
+                    <label for="nine">I am friends with my boss</label>
+                    <br>
+                    <input type="radio" id="ten" value="Ten" @change="clicked" v-model="picked">
+                    <label for="ten">I mostly tolerate my boss.</label>
+                    <br>
+                    <input type="radio" id="eleven" value="Eleven" @change="clicked" v-model="picked">
+                    <label for="eleven">I tend to avoid my boss as much as possible.</label>
+                    <br>
+                    <input type="radio" id="twelve" value="Twelve"  @change="clicked" v-model="picked">
+                    <label for="twelve">I should be boss.</label>
+                    <br>
+                    <a v-link="{path: '/Four'}">
+                        <button :disabled="!selected" @click="saveAnswer(picked)" class="btn btn-default">Next</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!-- question four -->
+
+    <template id="question-four">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h2>Question 4</h2>
+                    <img src="img/8.png">
+                    <h4>Colleague comes to you for help with a personal problem</h4>
+                    <input type="radio" id="thirteen" value="Thirteen" @change="clicked" v-model="picked">
+                    <label for="thirteen">Lend an ear and offer advice.</label>
+                    <br>
+                    <input type="radio" id="fourteen" value="Fourteen" @change="clicked" v-model="picked">
+                    <label for="fourteen">Get annoyed and tell them to get lost.</label>
+                    <br>
+                    <input type="radio" id="fifteen" value="Fifteen" @change="clicked" v-model="picked">
+                    <label for="fifteen">Ignore them.</label>
+                    <br>
+                    <input type="radio" id="sixteen" value="Sixteen" @change="clicked" v-model="picked">
+                    <label for="sixteen">Help them but then complain about it later.</label>
+                    <br>
+                    <a v-link="{path: '/Five'}">
+                        <button :disabled="!selected" @click="saveAnswer(picked)" class="btn btn-default">Next</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+<!-- question five -->
+    <template id="question-five">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h2>Question 5</h2>
+                    <img src="img/3.jpg">
+                    <h4>Your boss called another pointless meeting</h4>
+                    <input type="radio" id="seventeen" value="Seventeen" @change="clicked" v-model="picked">
+                    <label for="seventeen">Goof around with co-workers.</label>
+                    <br>
+                    <input type="radio" id="eighteen" value="Eighteen" @change="clicked" v-model="picked">
+                    <label for="eighteen">Tune your boss out.</label>
+                    <br>
+                    <input type="radio" id="nineteen" value="Nineteen" @change="clicked" v-model="picked">
+                    <label for="nineteen">Diligently Take notes.</label>
+                    <br>
+                    <input type="radio" id="twenty" value="Twenty" @change="clicked" v-model="picked">
+                    <label for="twenty">Pay attention.</label>
+                    <br>
+                    <a v-link="{path: '/Results'}">
+                        <button :disabled="!selected" @click="saveAnswer(picked)" class="btn btn-default">Get Results</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template id="results">
+        <div class="container">
+            <div class="jumbotron">
+                <div class="center-block">
+                    <h4>Results</h4>
+                    <img src="img/5.jpg">
+                    <h5>{{displayResults}}</h5>
+                    <a v-link="{path: '/'}">
+                        <button @click="clear" class="btn btn-default">Try Again</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+    </template>
+
+
+
+
+
+    
+    <script src="node_modules/vue/dist/vue.js"></script>
+    <script src="node_modules/vue-router/dist/vue-router.js"></script>
+    <script src="https://cdn.jsdelivr.net/lodash/4.13.1/lodash.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>

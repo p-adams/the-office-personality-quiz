@@ -1,0 +1,58 @@
+body{
+    width: 100%;
+}
+#app{
+    width: 100%;
+    height: 100vh;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #CCEAF4;
+}
+h2, h4, h5{
+    font-family: 'Lato', sans-serif !important;
+    color: #A9A9A9 !important;
+}
+.jumbotron{
+    background-color: #EFEFEF !important;
+    height: 90vh;
+}
+.center-block{
+    width: 65%;
+    margin: 0px auto 0px auto;
+    
+}
+#title{
+    font-family: 'Lato', sans-serif;
+    color: #A9A9A9;
+    font-size: 45px;
+    padding: 5px;
+    margin-top: -10px;
+    margin-bottom: 25px;
+}
+#start-image{
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+.btn-primary{
+    background-color: #FF3B3D !important;
+    font-size: 25px !important;
+    font-weight: bolder;
+    float: right;
+    margin-right: 59px;
+    margin-top: 15px;
+    height: 50px;
+    width: 100px;
+}
+.btn-primary:hover{
+    background-color: white !important;
+    color: black !important;
+}
+.btn-default{
+    background-color: #FF3B3D !important;
+    font-size: 20px !important;
+    font-weight: bold;
+    color: white !important;
+}
+label{
+    font-family: 'Lato', sans-serif;
+    color: #A9A9A9;
+}
